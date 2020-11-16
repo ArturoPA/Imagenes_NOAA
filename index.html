@@ -1,0 +1,85 @@
+<!doctype html>
+
+<html class="no-js" lang="en">
+
+  <head background="img/fondo4">
+
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recepción Satelital Basada En SDR</title>
+    <link rel="stylesheet" href="css/foundation.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation-float.min.css" integrity="sha256-4ldVyEvC86/kae2IBWw+eJrTiwNEbUUTmN0zkP4luL4=" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/app.css"/>
+  </head>
+
+  <body>
+
+
+    <!-- header -->
+    <header class="sticky-shrinknav-header">
+      <h1 class="sticky-shrinknav-header-title">Receptor de imágenes meteorológicas</h1>
+      <ul class="menu align-center sticky-shrinknav-menu">
+        <li><a href="index.html"><b>Inicio</b></a></li>
+        <li><a href="#Diseño"><b>Diseño del Sistema</b></a></li>
+        <li><a href="#Resultados"><b>Resultados</b></a></li>
+      </ul>
+    </header>
+
+    <!-- diseño del sistema -->
+    <div class="row align-middle" style="display:flex;" id=Diseño>
+      <div class="columns large-5"><img src="img/diagbl.png" alt=""></div>
+      <div class="columns large-7"><h2>Diseño del sistema</h2><p>El diseño general del sistema de recepción de señales satelitales para la obtención de imágenes meteorológicas basado en dispositivo de radio definido por software (SDR), se presenta en el diagrama de bloques de la figura.</p></div>
+    </div>
+    <div class="row align-middle" style="display:flex;">
+      <div class="columns large-7"><h2>Sistema de Recepción</h2><p>El bloque de recepción está formado por una antena de dipolo de media onda dimensionada de acuerdo a los requerimientos de la aplicación. Se hizo uso de este tipo de antena debido a su fácil fabricación y economía. Para la demodulación, amplificación y filtrado de la señal recibida en la antena, el dispositivo SDR que se utilizó es un Nooelec NESDR Mini SDR & DVB-T en conjunto con CubicSDR, un software para el uso y configuración de dispositivos SDR. Se eligió este software debido a que es de uso gratuito, intuitivo y fácil de ejecutar. </p></div>
+      <div class="columns large-5"><img src="img/recep.JPG" alt=""></div>
+    </div>
+    <div class="row align-middle" style="display:flex;">
+      <div class="columns large-12"><h2>Procesamiento y Almacenamiento de Imágenes.</h2><p>La siguiente etapa corresponde al procesamiento de la señal recibida y su decodificación con la ayuda del software gratuito WXToImg, una herramienta muy útil que decodifica la señal de audio recibida por el Nooelec NESDR Mini SDR & DVB-T y entrega la imagen clara tomada por el satélite; imagen que puede almacenarse en una dirección cualquiera del PC indicada en la configuración del software. En esta etapa también se hizo uso de un cable virtual (VB-Audio Virtual Cable) que conecta la salida del software CubicSDR a WXToImg. De la misma manera que todos los softwares usados en este diseño, VB-Audio Virtual Cable es un software gratuito que puede instalarse libremente desde internet. </p></div>
+    </div>
+    <div class="row align-middle" style="display:flex;" id=Diseño>
+      <div class="columns large-5" align="center"><img src="img/gitatom.JPG" alt=""></div>
+      <div class="columns large-7"><h2>Envío a la Web</h2><p>En esta última etapa se hizo uso del editor Atom para hacer el código fuente de nuestro sitio web y, gracias al servicio de repositorios, creación de páginas web y hosting gratuito de GitHub, se creó un repositorio con las imágenes tomadas y se diseñó la página web para el acceso remoto a la información captada.</p></div>
+    </div>
+
+    <!-- resultados -->
+    <div class="row" id=Resultados>
+      <div class="columns large-12">
+        <h2>Resultados</h2>
+        <p>Elija el satélite del que desea observar imágenes. Tenga en cuenta que las imagenes presentadas corresponden a resultados de los últimos dos días.</p>
+      </div>
+      <div class="columns large-4 medium-4 small-12">
+        <div class="callout"><h3 class="text-center">NOAA-15</h3><p>Este satélite fue lanzado el 13 de mayo de 1998. Tiene un periodo orbital de 102 minutos aproximadamente. Las frecuencias ATP de transmisión son de 137.5MHz y 137.62MHz</p><a href="NOAA15.html" class="button large expanded">Ver Imágenes</a></div>
+      </div>
+      <div class="columns large-4 medium-4 small-12">
+        <div class="callout"><h3 class="text-center">NOAA-18</h3><p>Este satélite fue lanzado el 20 de mayo de 2005. Tiene un periodo orbital de 102 minutos aproximadamente. Las frecuencias ATP de transmisión son de 137.1MHz y 137.9125MHz</p><a href="NOAA18.html" class="button large expanded">Ver Imágenes</a></div>
+      </div>
+      <div class="columns large-4 medium-4 small-12">
+        <div class="callout"><h3 class="text-center">NOAA-19</h3><p>Este satélite, igual que el NOAA-18, fue lanzado el 20 de mayo de 2005. Tiene un periodo orbital de 102 minutos aproximadamente. Las frecuencias ATP de transmisión son las mismas que para el NOAA-18 de 137.1MHz y 137.9125MHz</p><a href="NOAA19.html" class="button large expanded">Ver Imágenes</a></div>
+      </div>
+    </div>
+
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/what-input.js"></script>
+    <script src="js/vendor/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+    <script type="text/javascript">
+      $(function() {
+  $(window).scroll(function() {
+    var winTop = $(window).scrollTop();
+    if (winTop >= 30) {
+      $("body").addClass("sticky-shrinknav-wrapper");
+    } else{
+      $("body").removeClass("sticky-shrinknav-wrapper");
+    }
+  });
+});
+
+
+    </script>
+  </body>
+
+</html>
